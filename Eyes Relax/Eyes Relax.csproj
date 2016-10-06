@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{39ee7aa1-c598-4e05-b82e-0d28499fca51}</ProjectGuid>
+    <ProjectGuid>{e13a240c-2325-4782-9bb2-4d93bc046b4f}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Break_Time</RootNamespace>
-    <AssemblyName>Break Time</AssemblyName>
+    <RootNamespace>Eyes_Relax</RootNamespace>
+    <AssemblyName>Eyes Relax</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
@@ -17,7 +17,7 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     
-    <PackageCertificateKeyFile>Break Time_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>Eyes Relax_TemporaryKey.pfx</PackageCertificateKeyFile>
     
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -107,7 +107,7 @@
       <SubType>Designer</SubType>
     </AppxManifest>
     
-    <None Include="Break Time_TemporaryKey.pfx" />
+    <None Include="Eyes Relax_TemporaryKey.pfx" />
     
   </ItemGroup>
   <ItemGroup>

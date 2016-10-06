@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Break_Time
+namespace Eyes_Relax
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

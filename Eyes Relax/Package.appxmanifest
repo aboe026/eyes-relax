@@ -7,14 +7,14 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="817b7c71-52e7-4a8d-a610-f1dfc5b5dfcd"
+    Name="1743e9cd-2820-424c-b9b8-be5f0c9b2d67"
     Publisher="CN=adamb"
     Version="1.0.0.0" />
 
-  <mp:PhoneIdentity PhoneProductId="817b7c71-52e7-4a8d-a610-f1dfc5b5dfcd" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="1743e9cd-2820-424c-b9b8-be5f0c9b2d67" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Break Time</DisplayName>
+    <DisplayName>Eyes Relax</DisplayName>
     <PublisherDisplayName>adamb</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
@@ -30,12 +30,12 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="Break_Time.App">
+      EntryPoint="Eyes_Relax.App">
       <uap:VisualElements
-        DisplayName="Break Time"
+        DisplayName="Eyes Relax"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Break Time"
+        Description="Eyes Relax"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
