@@ -26,5 +26,12 @@ namespace Eyes_Relax
         {
             this.InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            Break myBreak = new Break(new TimeSpan(0, 0, 60), new TimeSpan());
+            myBreak.startWait();
+            myBreak.percentBreak();
+        }
     }
 }
