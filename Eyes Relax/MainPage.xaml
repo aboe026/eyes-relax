@@ -13,7 +13,7 @@
             <ColumnDefinition Width="8*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Column="1" Height="519" Margin="0,78,0,0" VerticalAlignment="Top" Background="Black"/>
+        <StackPanel x:Name="relaxList" Grid.Column="1" Height="519" Margin="0,78,0,0" VerticalAlignment="Top" AutomationProperties.Name="relaxList"/>
         <TextBox x:Name="textBox" Grid.Column="1" HorizontalAlignment="Left" Margin="0,29,0,0" TextWrapping="Wrap" Text="Breaks" VerticalAlignment="Top" IsReadOnly="True" BorderThickness="0" Width="121" FontSize="36" Height="49"/>
         <Button x:Name="button" Grid.Column="1" Content="Add" HorizontalAlignment="Left" Margin="126,39,0,0" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="Black" FontSize="20" Click="button_Click"/>
 

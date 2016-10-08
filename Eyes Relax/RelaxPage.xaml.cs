@@ -37,7 +37,7 @@ namespace Eyes_Relax
         {
             Relax relax = e.Parameter as Relax;
             this.relax = relax;
-            populatePage();
+            PopulatePage();
         }
 
         private void App_BackRequested(object sender, BackRequestedEventArgs e)
@@ -56,14 +56,14 @@ namespace Eyes_Relax
         }
 
 
-        public void populatePage()
+        public void PopulatePage()
         {
             if (this.relax == null) {
                 ((Button)this.FindName("relaxChange")).Content = "Add";
             }
         }
 
-        private void makeNumber(object sender, TextChangedEventArgs e)
+        private void MakeNumber(object sender, TextChangedEventArgs e)
         {
             TextBox box = (TextBox)sender;
             String text = box.Text;
@@ -118,6 +118,46 @@ namespace Eyes_Relax
                     var dialog = new MessageDialog("You must specify Relax Units.");
                     dialog.Title = "Missing Information";
                     await dialog.ShowAsync();
+                }
+                else
+                {
+                    int waitHours = 0;
+                    int waitMinutes = 0;
+                    int waitSeconds = 0;
+                    ComboBoxItem selectedWaitUnits = (ComboBoxItem)relaxWaitUnits.SelectedValue;
+                    if (selectedWaitUnits.Content.ToString() == "Hrs")
+                    {
+                        waitHours = Int32.Parse(relaxWaitDuration.Text);
+                    }
+                    else if (selectedWaitUnits.Content.ToString() == "Min")
+                    {
+                        waitMinutes = Int32.Parse(relaxWaitDuration.Text);
+                    }
+                    else if (selectedWaitUnits.Content.ToString() == "Sec")
+                    {
+                        waitSeconds = Int32.Parse(relaxWaitDuration.Text);
+                    }
+                    TimeSpan waitDuration = new TimeSpan(waitHours, waitMinutes, waitSeconds);
+
+                    int relaxHours = 0;
+                    int relaxMinutes = 0;
+                    int relaxSeconds = 0;
+                    ComboBoxItem selectedRelaxUnits = (ComboBoxItem)relaxRelaxUnits.SelectedValue;
+                    if (selectedRelaxUnits.Content.ToString() == "Hrs")
+                    {
+                        relaxHours = Int32.Parse(relaxRelaxDuration.Text);
+                    }
+                    else if (selectedRelaxUnits.Content.ToString() == "Min")
+                    {
+                        relaxMinutes = Int32.Parse(relaxRelaxDuration.Text);
+                    }
+                    else if (selectedRelaxUnits.Content.ToString() == "Sec")
+                    {
+                        relaxSeconds = Int32.Parse(relaxRelaxDuration.Text);
+                    }
+                    TimeSpan relaxDuration = new TimeSpan(relaxHours, relaxMinutes, relaxSeconds);
+                    Relax relax = new Relax(relaxName.Text, waitDuration, relaxDuration);
+                    this.Frame.Navigate(typeof(MainPage), relax);
                 }
             }
         }

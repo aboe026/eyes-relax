@@ -22,17 +22,40 @@ namespace Eyes_Relax
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public List<Relax> relaxes { get; private set; }
+
         public MainPage()
         {
             this.InitializeComponent();
+            this.relaxes = new List<Relax>();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(RelaxPage), null);
-            //Relax myBreak = new Relax(new TimeSpan(0, 0, 60), new TimeSpan());
-            //myBreak.startWait();
-            //myBreak.percentBreak();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            Relax relax = e.Parameter as Relax;
+            if (relax != null)
+            {
+                if (relaxes.Contains(relax)) {
+
+                }
+                else
+                {
+                    relaxes.Add(relax);
+                    addRelaxToPage(relax);
+                }
+            }
+        }
+
+        private void addRelaxToPage(Relax relax)
+        {
+            StackPanel relaxList = (StackPanel)this.FindName("relaxList");
+            RelaxControl relaxControl = new RelaxControl(relax);
+            relaxList.Children.Add(relaxControl);
         }
     }
 }

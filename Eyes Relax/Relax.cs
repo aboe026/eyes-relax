@@ -8,13 +8,15 @@ namespace Eyes_Relax
 {
     public class Relax
     {
+        public String name { get; private set; }
         public TimeSpan waitDuration { get; private set; }
         public TimeSpan relaxDuration { get; private set; }
         public DateTime timeWaitEnds { get; private set; }
         public DateTime timeRelaxEnds { get; private set; }
 
-        public Relax(TimeSpan waitDuration, TimeSpan relaxDuration)
+        public Relax(String name, TimeSpan waitDuration, TimeSpan relaxDuration)
         {
+            this.name = name;
             this.waitDuration = waitDuration;
             this.relaxDuration = relaxDuration;
         }

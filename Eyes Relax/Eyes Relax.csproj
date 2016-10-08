@@ -101,6 +101,9 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RelaxControl.xaml.cs">
+      <DependentUpon>RelaxControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RelaxPage.xaml.cs">
       <DependentUpon>RelaxPage.xaml</DependentUpon>
     </Compile>
@@ -129,6 +132,10 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="RelaxControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RelaxPage.xaml">
       <SubType>Designer</SubType>
