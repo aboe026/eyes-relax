@@ -29,9 +29,10 @@ namespace Eyes_Relax
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            Break myBreak = new Break(new TimeSpan(0, 0, 60), new TimeSpan());
-            myBreak.startWait();
-            myBreak.percentBreak();
+            this.Frame.Navigate(typeof(RelaxPage), null);
+            //Relax myBreak = new Relax(new TimeSpan(0, 0, 60), new TimeSpan());
+            //myBreak.startWait();
+            //myBreak.percentBreak();
         }
     }
 }

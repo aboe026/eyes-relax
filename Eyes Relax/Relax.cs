@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Eyes_Relax
 {
-    class Break
+    public class Relax
     {
         public TimeSpan waitDuration { get; private set; }
         public TimeSpan relaxDuration { get; private set; }
         public DateTime timeWaitEnds { get; private set; }
         public DateTime timeRelaxEnds { get; private set; }
 
-        public Break(TimeSpan waitDuration, TimeSpan relaxDuration)
+        public Relax(TimeSpan waitDuration, TimeSpan relaxDuration)
         {
             this.waitDuration = waitDuration;
             this.relaxDuration = relaxDuration;
