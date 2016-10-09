@@ -8,15 +8,15 @@
     mc:Ignorable="d"
     d:DesignWidth="400" Height="68.536">
 
-    <Grid Margin="0,0,0,0">
+    <Grid Margin="0,0,0,0" RightTapped="Grid_RightTapped">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="3*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="name" Margin="0,0,171,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Center" TextAlignment="Center" BorderThickness="0" FontSize="20" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="waitDuration" Margin="0.667,10,0,0" TextWrapping="Wrap" Text="Wait: 60 Sec" VerticalAlignment="Top" TextAlignment="Center" BorderThickness="0" FontSize="12" Height="6" Grid.Column="1"/>
-        <TextBox x:Name="relaxDuration" Margin="0.667,39,0,-2" TextWrapping="Wrap" Text="Relax: 20 Sec" VerticalAlignment="Top" TextAlignment="Center" BorderThickness="0" FontSize="12" Height="23" Grid.Column="1"/>
+        <TextBox x:Name="name" Margin="0,0,171,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Center" TextAlignment="Center" BorderThickness="0" FontSize="24" Grid.ColumnSpan="2" Background="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name="waitDuration" Margin="0.667,6,0,0" TextWrapping="Wrap" Text="Wait: 1.00:00:00" VerticalAlignment="Top" TextAlignment="Center" BorderThickness="0" FontSize="16" Height="6" Grid.Column="1" Background="{x:Null}" IsReadOnly="True"/>
+        <TextBox x:Name="relaxDuration" Margin="0.667,35,0,0" TextWrapping="Wrap" Text="Relax: 1.00:00:00" VerticalAlignment="Top" TextAlignment="Center" BorderThickness="0" FontSize="16" Height="23" Grid.Column="1" Background="{x:Null}" IsReadOnly="True"/>
         <Button x:Name="action" Content="" Grid.Column="2" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Height="50" Width="50" Background="{x:Null}" BorderBrush="Black"/>
     </Grid>
 </UserControl>

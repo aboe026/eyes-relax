@@ -22,12 +22,11 @@ namespace Eyes_Relax
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public List<Relax> relaxes { get; private set; }
+        public static List<Relax> relaxes = new List<Relax>();
 
         public MainPage()
         {
             this.InitializeComponent();
-            this.relaxes = new List<Relax>();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -46,16 +45,20 @@ namespace Eyes_Relax
                 else
                 {
                     relaxes.Add(relax);
-                    addRelaxToPage(relax);
                 }
             }
+            populateRelaxList();
         }
 
-        private void addRelaxToPage(Relax relax)
+        private void populateRelaxList()
         {
             StackPanel relaxList = (StackPanel)this.FindName("relaxList");
-            RelaxControl relaxControl = new RelaxControl(relax);
-            relaxList.Children.Add(relaxControl);
+            for (int i=0; i < relaxes.Count; i++)
+            {
+                Relax relax = relaxes.ElementAt(i);
+                RelaxControl relaxControl = new RelaxControl(relax);
+                relaxList.Children.Add(relaxControl);
+            }
         }
     }
 }
