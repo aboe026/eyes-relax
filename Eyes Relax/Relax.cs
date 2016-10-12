@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Eyes_Relax
 {
+    [DataContract]
     public class Relax
     {
+        [DataMember]
         public String name { get; private set; }
+        [DataMember]
         public TimeSpan waitDuration { get; private set; }
+        [DataMember]
         public TimeSpan relaxDuration { get; private set; }
         public DateTime timeWaitEnds { get; private set; }
         public DateTime timeRelaxEnds { get; private set; }

@@ -121,6 +121,7 @@ namespace Eyes_Relax
                 }
                 else
                 {
+                    // construct relax object
                     int waitHours = 0;
                     int waitMinutes = 0;
                     int waitSeconds = 0;
@@ -157,6 +158,7 @@ namespace Eyes_Relax
                     }
                     TimeSpan relaxDuration = new TimeSpan(relaxHours, relaxMinutes, relaxSeconds);
                     Relax relax = new Relax(relaxName.Text, waitDuration, relaxDuration);
+
                     this.Frame.Navigate(typeof(MainPage), relax);
                 }
             }

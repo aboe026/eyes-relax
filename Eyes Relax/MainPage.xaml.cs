@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization.Json;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -34,7 +36,7 @@ namespace Eyes_Relax
             this.Frame.Navigate(typeof(RelaxPage), null);
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             Relax relax = e.Parameter as Relax;
             if (relax != null)
@@ -47,6 +49,23 @@ namespace Eyes_Relax
                     relaxes.Add(relax);
                 }
             }
+
+            // serialize relax object
+            MemoryStream mStream = new MemoryStream();
+            DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Relax>));
+            serializer.WriteObject(mStream, relaxes);
+
+            mStream.Position = 0;
+            StreamReader sReader = new StreamReader(mStream);
+            String contents = sReader.ReadToEnd();
+
+            //mStream.Position = 0;
+            //List<Relax> testRelax = (List<Relax>)serializer.ReadObject(mStream);
+
+            StorageFolder roamingFolder = ApplicationData.Current.RoamingFolder;
+            StorageFile dataFile = await roamingFolder.CreateFileAsync("EyesRelax.txt", CreationCollisionOption.ReplaceExisting);
+            await FileIO.WriteTextAsync(dataFile, contents);
+
             populateRelaxList();
         }
 
