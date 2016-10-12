@@ -59,9 +59,6 @@ namespace Eyes_Relax
             StreamReader sReader = new StreamReader(mStream);
             String contents = sReader.ReadToEnd();
 
-            //mStream.Position = 0;
-            //List<Relax> testRelax = (List<Relax>)serializer.ReadObject(mStream);
-
             StorageFolder roamingFolder = ApplicationData.Current.RoamingFolder;
             StorageFile dataFile = await roamingFolder.CreateFileAsync("EyesRelax.txt", CreationCollisionOption.ReplaceExisting);
             await FileIO.WriteTextAsync(dataFile, contents);
