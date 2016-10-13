@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -76,10 +77,8 @@ namespace Eyes_Relax
                     List<Relax> relaxesList = (List<Relax>)serializer.ReadObject(relaxesStream.AsStream());
                     MainPage.relaxes = relaxesList;
                 }
-                catch (FileNotFoundException ex)
-                {
-
-                }
+                catch (FileNotFoundException ex) { }
+                catch (SerializationException ex) { }
                 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;

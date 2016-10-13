@@ -44,5 +44,31 @@ namespace Eyes_Relax
             relaxText += relaxSpan.ToString();
             relaxDuration.Text = relaxText;
         }
+
+        private void Grid_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            FlyoutBase.ShowAttachedFlyout(sender as FrameworkElement);
+        }
+
+        private void Edit_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            MainPage.relaxes.Remove(relax);
+            MainPage mainPage = getMainPage();
+            mainPage.removeFromStackPanel(this);
+        }
+
+        private MainPage getMainPage()
+        {
+            StackPanel stackPanel = (StackPanel)this.Parent;
+            ScrollViewer scrollViewer = (ScrollViewer)stackPanel.Parent;
+            Grid grid = (Grid)scrollViewer.Parent;
+            MainPage mainPage = (MainPage)grid.Parent;
+            return mainPage;
+        }
     }
 }

@@ -36,7 +36,7 @@ namespace Eyes_Relax
             this.Frame.Navigate(typeof(RelaxPage), null);
         }
 
-        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Relax relax = e.Parameter as Relax;
             if (relax != null)
@@ -50,6 +50,31 @@ namespace Eyes_Relax
                 }
             }
 
+            saveRelaxesToFile();
+
+            populateRelaxList();
+        }
+
+        public void populateRelaxList()
+        {
+            StackPanel relaxList = (StackPanel)this.FindName("relaxList");
+            for (int i=0; i < relaxes.Count; i++)
+            {
+                Relax relax = relaxes.ElementAt(i);
+                RelaxControl relaxControl = new RelaxControl(relax);
+                relaxList.Children.Add(relaxControl);
+            }
+        }
+
+        public void removeFromStackPanel(RelaxControl relaxControl)
+        {
+            StackPanel relaxList = (StackPanel)this.FindName("relaxList");
+            relaxList.Children.Remove(relaxControl);
+            saveRelaxesToFile();
+        }
+
+        private async void saveRelaxesToFile()
+        {
             // serialize relax object
             MemoryStream mStream = new MemoryStream();
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Relax>));
@@ -61,20 +86,11 @@ namespace Eyes_Relax
 
             StorageFolder roamingFolder = ApplicationData.Current.RoamingFolder;
             StorageFile dataFile = await roamingFolder.CreateFileAsync("EyesRelax.txt", CreationCollisionOption.ReplaceExisting);
-            await FileIO.WriteTextAsync(dataFile, contents);
-
-            populateRelaxList();
-        }
-
-        private void populateRelaxList()
-        {
-            StackPanel relaxList = (StackPanel)this.FindName("relaxList");
-            for (int i=0; i < relaxes.Count; i++)
+            try
             {
-                Relax relax = relaxes.ElementAt(i);
-                RelaxControl relaxControl = new RelaxControl(relax);
-                relaxList.Children.Add(relaxControl);
+                await FileIO.WriteTextAsync(dataFile, contents);
             }
+            catch (Exception ex) { }
         }
     }
 }
