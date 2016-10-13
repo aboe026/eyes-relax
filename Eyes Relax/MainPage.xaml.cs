@@ -31,23 +31,12 @@ namespace Eyes_Relax
             this.InitializeComponent();
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(RelaxPage), null);
-        }
-
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             Relax relax = e.Parameter as Relax;
-            if (relax != null)
+            if (relax != null && !relaxes.Contains(relax))
             {
-                if (relaxes.Contains(relax)) {
-
-                }
-                else
-                {
-                    relaxes.Add(relax);
-                }
+                relaxes.Add(relax);
             }
 
             saveRelaxesToFile();
@@ -91,6 +80,11 @@ namespace Eyes_Relax
                 await FileIO.WriteTextAsync(dataFile, contents);
             }
             catch (Exception ex) { }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(RelaxPage), null);
         }
     }
 }

@@ -16,14 +16,14 @@
         <TextBox x:Name="relaxNameLabel" Grid.Column="0" HorizontalAlignment="Right" Margin="0,78,10,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" IsReadOnly="True" FontSize="20" BorderThickness="0" Width="80" TextAlignment="Right" AutomationProperties.Name="relaxNameLabel" Background="{x:Null}"/>
         <TextBox x:Name="relaxName" Grid.Column="1" Margin="0,78,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" AcceptsReturn="True" ToolTipService.ToolTip="The name of your relax event." AutomationProperties.Name="relaxName" TabIndex="0" Background="{x:Null}"/>
         <TextBox x:Name="relaxWaitLabel" Grid.Column="0" HorizontalAlignment="Right" Margin="0,118,10,0" TextWrapping="Wrap" Text="Wait" VerticalAlignment="Top" IsReadOnly="True" FontSize="20" BorderThickness="0" Width="80" TextAlignment="Right" ToolTipService.ToolTip="The amount of time to wait until taking a relax break." AutomationProperties.Name="relaxWaitLabel" Background="{x:Null}"/>
-        <TextBox x:Name="relaxWaitDuration" Grid.Column="1" Margin="0,118,90,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextChanged="MakeNumber" InputScope="Digits" AutomationProperties.Name="relaxWaitDuration" TabIndex="1" Background="{x:Null}"/>
+        <TextBox x:Name="relaxWaitDuration" Grid.Column="1" Margin="0,118,90,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" TextChanged="convertToNumber" InputScope="Digits" AutomationProperties.Name="relaxWaitDuration" TabIndex="1" Background="{x:Null}"/>
         <ComboBox x:Name="relaxWaitUnits" Grid.Column="1" HorizontalAlignment="Right" Margin="0,118,0,0" VerticalAlignment="Top" Width="80" SelectedValue="Sec" AutomationProperties.Name="relaxWaitUnits" TabIndex="2" Background="{x:Null}">
             <ComboBoxItem Content="Sec"/>
             <ComboBoxItem Content="Min"/>
             <ComboBoxItem Content="Hrs"/>
         </ComboBox>
         <TextBox x:Name="relaxRelaxLabel" Grid.Column="0" HorizontalAlignment="Right" Margin="0,158,10,0" TextWrapping="Wrap" Text="Relax" VerticalAlignment="Top" IsReadOnly="True" FontSize="20" BorderThickness="0" Width="80" TextAlignment="Right" ToolTipService.ToolTip="The amount of time to relax for." AutomationProperties.Name="relaxRelaxLabel" Background="{x:Null}"/>
-        <TextBox x:Name="relaxRelaxDuration" Grid.Column="1" Margin="0,155,90,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" InputScope="Digits" TextChanged="MakeNumber" AutomationProperties.Name="relaxRelaxDuration" TabIndex="3" Background="{x:Null}"/>
+        <TextBox x:Name="relaxRelaxDuration" Grid.Column="1" Margin="0,155,90,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" InputScope="Digits" TextChanged="convertToNumber" AutomationProperties.Name="relaxRelaxDuration" TabIndex="3" Background="{x:Null}"/>
         <ComboBox x:Name="relaxRelaxUnits" Grid.Column="1" HorizontalAlignment="Right" Margin="0,155,0,0" VerticalAlignment="Top" Width="80" SelectedValue="Sec" AutomationProperties.Name="relaxRelaxUnits" TabIndex="4" Background="{x:Null}">
             <ComboBoxItem Content="Sec"/>
             <ComboBoxItem Content="Min"/>

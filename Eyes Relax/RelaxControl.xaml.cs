@@ -52,7 +52,8 @@ namespace Eyes_Relax
 
         private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            
+            MainPage mainPage = getMainPage();
+            mainPage.Frame.Navigate(typeof(RelaxPage), relax);
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)

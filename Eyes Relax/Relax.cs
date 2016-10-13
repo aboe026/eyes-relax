@@ -11,13 +11,13 @@ namespace Eyes_Relax
     public class Relax
     {
         [DataMember]
-        public String name { get; private set; }
+        public String name { get; set; }
         [DataMember]
-        public TimeSpan waitDuration { get; private set; }
+        public TimeSpan waitDuration { get; set; }
         [DataMember]
-        public TimeSpan relaxDuration { get; private set; }
-        public DateTime timeWaitEnds { get; private set; }
-        public DateTime timeRelaxEnds { get; private set; }
+        public TimeSpan relaxDuration { get; set; }
+        public DateTime timeWaitEnds { get; set; }
+        public DateTime timeRelaxEnds { get; set; }
 
         public Relax(String name, TimeSpan waitDuration, TimeSpan relaxDuration)
         {
