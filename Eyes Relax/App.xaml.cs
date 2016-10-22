@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Json;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -37,7 +41,7 @@ namespace Eyes_Relax
         /// will be used such as when the application is launched to open a specific file.
         /// </summary>
         /// <param name="e">Details about the launch request and process.</param>
-        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        protected async override void OnLaunched(LaunchActivatedEventArgs e)
         {
 #if DEBUG
             if (System.Diagnostics.Debugger.IsAttached)
@@ -61,6 +65,21 @@ namespace Eyes_Relax
                     //TODO: Load state from previously suspended application
                 }
 
+                // Load any stored data
+                StorageFolder roamingFolder = ApplicationData.Current.RoamingFolder;
+                try
+                {
+                    StorageFile dataFile = await roamingFolder.GetFileAsync("EyesRelax.txt");
+                    String relaxesData = await FileIO.ReadTextAsync(dataFile);
+                    IRandomAccessStream relaxesStream = await dataFile.OpenReadAsync();
+
+                    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<Relax>));
+                    List<Relax> relaxesList = (List<Relax>)serializer.ReadObject(relaxesStream.AsStream());
+                    MainPage.relaxes = relaxesList;
+                }
+                catch (FileNotFoundException ex) { }
+                catch (SerializationException ex) { }
+                
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
